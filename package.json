@@ -36,6 +36,7 @@
     "karma-spec-reporter": "0.0.31",
     "morgan": "^1.9.0",
     "newrelic": "^2.3.1",
+    "ngx-prx-styleguide": "^0.0.19",
     "pug": "^2.0.0-rc.4",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
