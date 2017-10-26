@@ -4,11 +4,14 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4203",
-    "build": "ng build",
+    "start": "node lib/server.js dev",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "testonce": "ng test --watch=false --browsers=PhantomJS",
+    "ci": "CODECOV=true ng test --watch=false --browsers=PhantomJS && codecov",
+    "serve": "node lib/server.js dist"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +24,19 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "child_process": "^1.0.2",
+    "codecov": "^3.0.0",
+    "connect-gzip-static": "^2.1.1",
     "core-js": "^2.4.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "express-http-proxy": "^1.0.7",
+    "fs": "0.0.1-security",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-spec-reporter": "0.0.31",
+    "morgan": "^1.9.0",
+    "newrelic": "^2.3.1",
+    "pug": "^2.0.0-rc.4",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
