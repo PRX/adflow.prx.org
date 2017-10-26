@@ -1,6 +1,13 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Adflow.prx.org
-  </h1>
-</div>
+<prx-auth [host]="authHost" [client]="authClient"></prx-auth>
+<prx-header>
+  <prx-navuser *ngIf="loggedIn">
+  </prx-navuser>
+</prx-header>
+<main>
+  <article>
+    <router-outlet *ngIf="!error"></router-outlet>
+    <p class="error" *ngIf="error">{{error}}</p>
+  </article>
+</main>
+<prx-footer></prx-footer>
+<prx-modal></prx-modal>
