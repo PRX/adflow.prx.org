@@ -10,7 +10,7 @@ JINGLE_HOST=jingle.staging.prx.tech
 # prx auth
 AUTH_HOST=id.staging.prx.tech
 # for adflow.prx.dev
-AUTH_CLIENT_ID=
+AUTH_CLIENT_ID=5f107241f1eec62dfc5d77030df34616569890bc
 
 # monitoring
 NEW_RELIC_APP_NAME=
