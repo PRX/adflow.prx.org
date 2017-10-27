@@ -17,6 +17,8 @@ export class AppComponent {
   userName: string;
   userImageDoc: HalDoc;
 
+  error: string;
+
   constructor(
     private auth: AuthService,
     private cms: CmsService
