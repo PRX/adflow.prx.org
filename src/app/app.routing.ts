@@ -15,6 +15,6 @@ export const routingComponents: any[] = [
   LoginComponent
 ];
 
-export const routingProviders: any[] = [AuthGuard, UnauthGuard];
+export const routingProviders: any[] = [];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

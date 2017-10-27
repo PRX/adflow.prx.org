@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AuthModule } from 'ngx-prx-styleguide';
 
 import { CoreModule } from './core';
+import { SharedModule } from './shared';
 
 import { AppComponent } from './app.component';
 import { routing, routingProviders, routingComponents } from './app.routing';
@@ -16,7 +17,8 @@ import { routing, routingProviders, routingComponents } from './app.routing';
     AuthModule,
     BrowserModule,
     CoreModule,
-    routing
+    routing,
+    SharedModule
   ],
   providers: [routingProviders],
   bootstrap: [AppComponent]

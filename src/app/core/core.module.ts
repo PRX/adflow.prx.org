@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { FooterModule, HalModule, HeaderModule, ModalModule, ModalService } from 'ngx-prx-styleguide';
 
+import { CmsService } from './hal';
+
+
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     HttpModule,
+    HalModule
   ],
   exports: [
     FooterModule,
@@ -15,6 +19,7 @@ import { FooterModule, HalModule, HeaderModule, ModalModule, ModalService } from
     ModalModule
   ],
   providers: [
+    CmsService,
     ModalService
   ]
 })

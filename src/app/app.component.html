@@ -1,6 +1,8 @@
 <prx-auth [host]="authHost" [client]="authClient"></prx-auth>
 <prx-header>
-  <prx-navuser *ngIf="loggedIn">
+  <prx-navuser *ngIf="loggedIn" [userName]="userName">
+    <prx-spinner class="user-loading" inverse=true></prx-spinner>
+    <prx-image *ngIf="userImageDoc" class="user-loaded" [imageDoc]="userImageDoc"></prx-image>
   </prx-navuser>
 </prx-header>
 <main>

@@ -3,21 +3,25 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Subject } from 'rxjs/Subject';
-import { CoreModule} from './core'; //, CmsService
+import { Observable } from 'rxjs/Observable';
 
-import { AuthModule, AuthService, ModalModule } from 'ngx-prx-styleguide'; //, MockHalService, MockHalDoc
+import { CoreModule, CmsService } from './core';
 
+import { AuthModule, AuthService, ModalModule, MockHalService, MockHalDoc } from 'ngx-prx-styleguide';
+
+import { SharedModule } from './shared';
 import { AppComponent } from './app.component';
+
 describe('AppComponent', () => {
   let comp: AppComponent;
   let fix: ComponentFixture<AppComponent>;
   let de: DebugElement;
   let el: HTMLElement;
   let auth;
-  // let cms;
+  let cms;
   let authToken;
   let refreshToken;
-  // let cmsToken: string = null;
+  let cmsToken: string = null;
 
   beforeEach(async(() => {
     authToken = new Subject<string>();
@@ -31,7 +35,8 @@ describe('AppComponent', () => {
         CoreModule,
         AuthModule,
         ModalModule,
-        RouterTestingModule
+        RouterTestingModule,
+        SharedModule
       ],
       providers: [
         {provide: AuthService, useValue: {
@@ -39,6 +44,12 @@ describe('AppComponent', () => {
           url: () => '',
           token: authToken,
           refresh: refreshToken
+        }},
+        {provide: CmsService, useValue: {
+          auth: Observable.of(auth),
+          setToken: token => cmsToken = token,
+          account: new Subject<any>(),
+          individualAccount: new Subject<any>()
         }}
       ]
     }).compileComponents().then(() => {
