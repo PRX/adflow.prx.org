@@ -1,27 +1,59 @@
 # Adflow.Prx.Org
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+### Use defaults
+To set-up environment custom values, start with these defaults in your `.env` file:
+``` sh
+cp env-example .env
+vim .env
+```
+Adflow will connect to id.staging.prx.org and jingle.staging.prx.tech.
 
-## Development server
+### AUTH_CLIENT_ID for environment
+Next, you will need to create a client application set up, this is easiest to do from the ID console:
+``` ruby
+ssh to an instance running ID
+# connect to ID's docker container
+docker exec -it <container_id> /bin/ash
+# start a console for ID
+./bin/application console
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# in the console, save a new client application
+client = Client.create(
+  :url => "http://adflow.prx.dev",
+  :callback_url => "http://adflow.prx.dev/assets/callback.html",
+  :support_url => "http://adflow.prx.dev",
+  :image_url => "http://s3.amazonaws.com/production.mediajoint.prx.org/public/comatose_files/4625/prx-logo_large.png",
+  :description => "adflow.prx.dev",
+  :template_name => "prx_beta",
+  :user_id =>8,
+  :name => "adflow.prx.dev",
+  :auto_grant =>true
+)
+client.key = SecureRandom.hex(40)[0..39]
+client.secret = SecureRandom.hex(40)[0..39]
+client.save
 
-## Code scaffolding
+# get the client.key and set it as AUTH_CLIENT_ID
+puts "Add this to .env"
+puts "AUTH_CLIENT_ID=#{client.key}"
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Enter in the client id in `.env`, setting `AUTH_CLIENT_ID` to the value from above.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Local Install
 
-## Running unit tests
+``` sh
+# install dependencies (https://yarnpkg.com/en/docs/install)
+yarn install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# setup pow proxy (see http://pow.cx/)
+echo 4205 > ~/.pow/adflow.prx
 
-## Running end-to-end tests
+# dev server
+npm start
+open http://adflow.prx.dev
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# run tests in Chrome
+npm test
+```

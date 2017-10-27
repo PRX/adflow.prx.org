@@ -1,0 +1,20 @@
+(1) cp env-example .env
+(2) add your ENV overrides here
+(3) profit
+
+LOCAL_ENV=true
+
+# prx api
+JINGLE_HOST=jingle.staging.prx.tech
+CMS_HOST=cms.staging.prx.tech
+CMS_TTL=
+
+# prx auth
+AUTH_HOST=id.staging.prx.tech
+# for adflow.prx.dev
+AUTH_CLIENT_ID=5f107241f1eec62dfc5d77030df34616569890bc
+
+# monitoring
+NEW_RELIC_APP_NAME=
+NEW_RELIC_LICENSE_KEY=
+GA_KEY=
