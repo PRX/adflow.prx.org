@@ -6,6 +6,7 @@ LOCAL_ENV=true
 
 # prx api
 JINGLE_HOST=jingle.staging.prx.tech
+JINGLE_TTL=
 CMS_HOST=cms.staging.prx.tech
 CMS_TTL=
 

@@ -8,6 +8,7 @@ const DEFAULTS = {
   CMS_HOST: 'cms.prx.org',
   CMS_TTL: 1, // 1 second
   JINGLE_HOST: 'jingle.prx.org',
+  JINGLE_TTL: 1, // 1 second
   GA_KEY: ''
 };
 
@@ -34,5 +35,6 @@ export class Env {
   public static get CMS_HOST():              string { return getVar('CMS_HOST'); }
   public static get CMS_TTL():               number { return getVar('CMS_TTL'); }
   public static get JINGLE_HOST():           string { return getVar('JINGLE_HOST'); }
+  public static get JINGLE_TTL():            number { return getVar('JINGLE_TTL'); }
   public static get GA_KEY():                string { return getVar('GA_KEY'); }
 }

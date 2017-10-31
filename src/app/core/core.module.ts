@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { FooterModule, HalModule, HeaderModule, ModalModule, ModalService } from 'ngx-prx-styleguide';
 
-import { CmsService } from './hal';
+import { CmsService, JingleService } from './hal';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import { CmsService } from './hal';
   ],
   providers: [
     CmsService,
-    ModalService
+    ModalService,
+    JingleService
   ]
 })
 

@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
-import { CoreModule, CmsService } from './core';
+import { CoreModule, CmsService, JingleService } from './core';
 
 import { AuthModule, AuthService, ModalModule, MockHalService, MockHalDoc } from 'ngx-prx-styleguide';
 
@@ -50,6 +50,9 @@ describe('AppComponent', () => {
           setToken: token => cmsToken = token,
           account: new Subject<any>(),
           individualAccount: new Subject<any>()
+        }},
+        {provide: JingleService, useValue: {
+          campaigns: new Subject<any>()
         }}
       ]
     }).compileComponents().then(() => {

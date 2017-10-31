@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'ngx-prx-styleguide';
-import { CmsService, HalDoc } from './core';
+import { CmsService, HalDoc, JingleService } from './core';
 import { Env } from './core/core.env';
 
 @Component({
@@ -21,9 +21,13 @@ export class AppComponent {
 
   constructor(
     private auth: AuthService,
-    private cms: CmsService
+    private cms: CmsService,
+    private jingle: JingleService
   ) {
-    auth.token.subscribe(token => this.loadAccount(token));
+    auth.token.subscribe((token) => {
+      this.loadAccount(token);
+      this.loadCampaigns();
+    });
   }
 
   loadAccount(token: string) {
@@ -38,5 +42,11 @@ export class AppComponent {
       this.userImageDoc = null;
       this.userName = null;
     }
+  }
+
+  loadCampaigns() {
+    this.jingle.campaigns.subscribe(cDocs => {
+      // getting CORS error right now
+    })
   }
 }
