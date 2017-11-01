@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HalDoc } from '../../core';
 
 @Component({
@@ -6,15 +6,24 @@ import { HalDoc } from '../../core';
   styleUrls: ['home-campaign.component.css'],
   template: `
   <h1>
-    {{campaign.start_date}}
+    {{sponsor.name}}
+    {{campaign.start_date}} - {{campaign.end_date}}
   </h1>
   `
 })
 
-export class HomeCampaignComponent {
+export class HomeCampaignComponent implements OnInit {
 
   @Input() campaign: HalDoc;
+  sponsor: HalDoc; //TODO should change to Sponsor Model
 
-  campaigns: HalDoc[]; //TODO should change to Campaign Model
+  ngOnInit() {
+    this.loadSponsor();
+  }
 
+  loadSponsor() {
+    this.campaign.follow('prx:sponsor').subscribe(sponsor => {
+      this.sponsor = sponsor;
+    })
+  }
 }
