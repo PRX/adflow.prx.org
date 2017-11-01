@@ -1,1 +1,2 @@
-export { HomeComponent } from './home.component';
+export * from './home.component';
+export * from './directives/home-podcast.component';

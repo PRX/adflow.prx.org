@@ -1,11 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { JingleService, HalDoc } from '../core';
 
 @Component({
   selector: 'adflow-home',
-  template: `<h1>Adflow: home</h1>
-  `
+  styleUrls: ['home.component.css'],
+  templateUrl: 'home.component.html'
 })
-export class HomeComponent {
-  // eventually this will have Tabs+TabService (or whatever else we use because Tab uses BaseModel plus we have mobile requirements),
-  //  but right now it does nothing but a place to point the router 
+
+export class HomeComponent implements OnInit {
+
+  isLoaded = false;
+  podcasts: HalDoc[];
+
+  constructor(private jingle: JingleService) {}
+
+  ngOnInit() {
+    this.isLoaded = false;
+    this.jingle.podcasts.subscribe(podcasts => {
+      this.isLoaded = true;
+      this.podcasts = podcasts;
+    });
+  }
+
 }

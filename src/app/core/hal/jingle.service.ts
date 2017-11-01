@@ -17,8 +17,12 @@ export class JingleService extends HalBaseService {
     return Env.JINGLE_TTL;
   }
 
-  get campaigns(): HalObservable<HalDoc> {
-    return this.follow('prx:campaign');
+  get campaigns(): HalObservable<HalDoc[]> {
+    return this.followItems('prx:campaigns');
+  }
+
+  get podcasts(): HalObservable<HalDoc[]> {
+    return this.followItems('prx:podcasts');
   }
 
   // get defaultAccount(): HalObservable<HalDoc> {

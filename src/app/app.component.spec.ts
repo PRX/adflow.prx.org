@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
-import { CoreModule, CmsService, JingleService } from './core';
+import { CoreModule, CmsService } from './core';
 
 import { AuthModule, AuthService, ModalModule, MockHalService, MockHalDoc } from 'ngx-prx-styleguide';
 
@@ -50,9 +50,6 @@ describe('AppComponent', () => {
           setToken: token => cmsToken = token,
           account: new Subject<any>(),
           individualAccount: new Subject<any>()
-        }},
-        {provide: JingleService, useValue: {
-          campaigns: new Subject<any>()
         }}
       ]
     }).compileComponents().then(() => {
@@ -71,10 +68,10 @@ describe('AppComponent', () => {
   // it(`should only show podcast choices when logged in`, async(() => {
   //   comp.loggedIn = true;
   //   fix.detectChanges();
-  //   expect(de.query(By.css('adflow-podcasts'))).not.toBeNull();
+  //   expect(de.query(By.css('adflow-home'))).not.toBeNull();
   //   comp.loggedIn = false;
   //   fix.detectChanges();
-  //   expect(de.query(By.css('adflow-podcasts'))).toBeNull();
+  //   expect(de.query(By.css('adflow-home'))).toBeNull();
   // }));
 
   it('should show user info when logged in', async(() => {
