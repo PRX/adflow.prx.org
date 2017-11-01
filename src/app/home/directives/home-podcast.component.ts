@@ -5,10 +5,12 @@ import { HalDoc } from '../../core';
   selector: 'adflow-home-podcast',
   styleUrls: ['home-podcast.component.css'],
   template: `
-  <h1>
-    {{podcast.name}}
-  </h1>
-  <adflow-home-campaign *ngFor="let c of campaigns" [campaign]="c"></adflow-home-campaign>
+  <header>
+    <h1><a href="#">{{podcast.name}}</a></h1>
+  </header>
+  <div class="campaign-list">
+    <adflow-home-campaign *ngFor="let c of campaigns" [campaign]="c"></adflow-home-campaign>
+  </div>
   `
 })
 
