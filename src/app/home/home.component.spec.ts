@@ -2,10 +2,9 @@ import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
-import { MockHalService, MockHalDoc } from 'ngx-prx-styleguide';
+import { MockHalDoc } from 'ngx-prx-styleguide';
 
 import { CoreModule, JingleService } from './../core';
 import { SharedModule } from './../shared';
