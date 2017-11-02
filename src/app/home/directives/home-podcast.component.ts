@@ -25,9 +25,10 @@ export class HomePodcastComponent implements OnInit {
   }
 
   loadCampaigns() {
-    console.log(this.podcast);
-    // this.podcast.followItems('prx:campaigns').subscribe(campaigns => {
-    //   this.campaigns = campaigns;
-    // });
+    if (this.podcast && this.podcast.has('prx:campaigns')) {
+      this.podcast.followItems('prx:campaigns').subscribe(campaigns => {
+        this.campaigns = campaigns;
+      });
+    }
   }
 }
