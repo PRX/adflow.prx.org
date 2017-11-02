@@ -21,7 +21,7 @@ export class AppComponent {
 
   constructor(
     private auth: AuthService,
-    private cms: CmsService,
+    private cms: CmsService
   ) {
     auth.token.subscribe((token) => {
       this.loadAccount(token);
