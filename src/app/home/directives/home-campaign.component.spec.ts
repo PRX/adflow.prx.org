@@ -47,16 +47,15 @@ describe('HomeCampaignComponent', () => {
   });
 
   it('should show start, end, & due dates', () => {
-    const start= de.query(By.css('.start'));
+    const start = de.query(By.css('.start'));
     expect(start.nativeElement.textContent).toEqual('11/30/16');
-    const end= de.query(By.css('.end'));
+    const end = de.query(By.css('.end'));
     expect(end.nativeElement.textContent).toEqual('12/31/16');
 
     // TODO we don't have due dates yet in jingle
-    const due= de.query(By.css('.due'));
+    const due = de.query(By.css('.due'));
     expect(start.nativeElement.textContent).not.toBeNull();
-
-  })
+  });
 
   it('should determine status of campaign from date and approval', () => {
     expect(comp.statusText).toEqual('past');
@@ -74,5 +73,5 @@ describe('HomeCampaignComponent', () => {
     comp.campaign['approved'] = true;
     comp.setStatus();
     expect(comp.statusText).toEqual('ready');
-  })
+  });
 });

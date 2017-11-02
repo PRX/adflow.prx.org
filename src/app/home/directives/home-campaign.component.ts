@@ -23,8 +23,8 @@ import { HalDoc } from '../../core';
 export class HomeCampaignComponent implements OnInit {
 
   @Input() campaign: HalDoc;
-  editLink: string = '#'; // TODO make this real
-  sponsor: HalDoc; //TODO should change to Sponsor Model
+  editLink = '#'; // TODO make this real
+  sponsor: HalDoc; // TODO should change to Sponsor Model
   statusText: string;
   statusClass: string;
   dueDate: Date = new Date(); // TODO add due date to jingle campaigns
@@ -39,7 +39,7 @@ export class HomeCampaignComponent implements OnInit {
     if (this.campaign && this.campaign.has('prx:sponsor')) {
       this.campaign.follow('prx:sponsor').subscribe(sponsor => {
         this.sponsor = sponsor;
-      })
+      });
     }
   }
 
@@ -50,16 +50,16 @@ export class HomeCampaignComponent implements OnInit {
 
     // note, currently there is no 'approved' -- TODO add approval to jingle campaigns
     if (today < startDate && this.campaign['approved']) {
-      this.statusText = "ready"
+      this.statusText = 'ready';
       this.statusClass = 'status ready';
-    } else if (today < startDate && !this.campaign['approved']){
-      this.statusText = "needs work"
+    } else if (today < startDate && !this.campaign['approved']) {
+      this.statusText = 'needs work';
       this.statusClass = 'status draft';
     } else if (today > startDate && today > endDate) {
-      this.statusText = "past"
+      this.statusText = 'past';
       this.statusClass = 'status past';
     } else if (today > startDate && today < endDate) {
-      this.statusText = "running"
+      this.statusText = 'running';
       this.statusClass = 'status running';
     }
   }

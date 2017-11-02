@@ -39,15 +39,15 @@ describe('HomePodcastComponent', () => {
   }));
 
   it('should prominently show podcast name', () => {
-    let h1 = de.query(By.css('h1')).query(By.css('a'));
+    const h1 = de.query(By.css('h1')).query(By.css('a'));
     expect(h1.nativeElement.textContent).toEqual('Podcast One');
   });
 
   it('should show campaigns for podcast', () => {
     expect(de.query(By.css('adflow-home-campaign'))).toBeNull();
-    let campaign1 = new MockHalDoc({name: 'one'});
+    const campaign1 = new MockHalDoc({name: 'one'});
     comp.campaigns = [campaign1];
     fix.detectChanges();
     expect(de.query(By.css('adflow-home-campaign'))).not.toBeNull();
-  })
+  });
 });

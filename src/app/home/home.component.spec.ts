@@ -55,9 +55,9 @@ describe('HomeComponent', () => {
 
   it('should show podcasts', () => {
     expect(de.query(By.css('adflow-home-podcast'))).toBeNull();
-    let podcast1 = new MockHalDoc({name: 'one'});
+    const podcast1 = new MockHalDoc({name: 'one'});
     comp.podcasts = [podcast1];
     fix.detectChanges();
     expect(de.query(By.css('adflow-home-podcast'))).not.toBeNull();
-  })
+  });
 });

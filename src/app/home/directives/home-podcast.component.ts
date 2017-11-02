@@ -18,7 +18,7 @@ export class HomePodcastComponent implements OnInit {
 
   @Input() podcast: HalDoc;
 
-  campaigns: HalDoc[]; //TODO should change to Campaign Model
+  campaigns: HalDoc[]; // TODO should change to Campaign Model
 
   ngOnInit() {
     this.loadCampaigns();
