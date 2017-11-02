@@ -15,7 +15,7 @@ import { HalDoc } from '../../core';
         <p class="end">{{campaign.end_date | date:"MM/dd/yy"}}</p>
       </span>
       <p *ngIf="statusClass" [class]="statusClass">{{statusText}}</p>
-      <p *ngIf="dueDate" class="due">Due: {{dueDate | date:"MM/dd"}}</p>
+      <p *ngIf="dueDate" class="due">Due: {{dueDate | date: shortDate}}</p>
     </article>
   `
 })
@@ -23,6 +23,7 @@ import { HalDoc } from '../../core';
 export class HomeCampaignComponent implements OnInit {
 
   @Input() campaign: HalDoc;
+  editLink: string = '#'; // TODO make this real
   sponsor: HalDoc; //TODO should change to Sponsor Model
   statusText: string;
   statusClass: string;
@@ -35,9 +36,11 @@ export class HomeCampaignComponent implements OnInit {
   }
 
   loadSponsor() {
-    this.campaign.follow('prx:sponsor').subscribe(sponsor => {
-      this.sponsor = sponsor;
-    })
+    if (this.campaign && this.campaign.has('prx:sponsor')) {
+      this.campaign.follow('prx:sponsor').subscribe(sponsor => {
+        this.sponsor = sponsor;
+      })
+    }
   }
 
   setStatus() {
