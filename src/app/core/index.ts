@@ -1,2 +1,2 @@
 export { CoreModule } from './core.module';
-export { CmsService, HalDoc } from './hal';
+export { CmsService, HalDoc, JingleService } from './hal';

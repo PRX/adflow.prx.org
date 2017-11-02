@@ -1,0 +1,67 @@
+h2 {
+  position: absolute;
+  bottom: 85px;
+  left: 0;
+  padding: 0 10px;
+  z-index: 11;
+  color: #fff;
+  max-height: 42px;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 21px;
+  overflow: hidden;
+  text-align: center;
+}
+h2 a {
+  color: inherit;
+}
+.run-dates {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 170px 0 0 0;
+  line-height: 18px;
+}
+.run-dates::before {
+  content: '';
+  display: block;
+  height: 71px;
+  position: absolute;
+  right: 0;
+  bottom: 50px;
+  top: 50px;
+  left: 0;
+  background-color: rgba(37,37,37,.7);
+}
+.status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 3px 10px;
+  z-index: 10;
+  color: #fff;
+  background-color: #777;
+  font-weight: 400;
+  font-size: 11px;
+  text-transform: uppercase;
+  line-height: 18px;
+}
+.status.new {
+  background-color: #61A85D;
+}
+.status.draft {
+  background-color: #ffa500;
+}
+.status.running {
+  background-color: #368aa2;
+}
+.due {
+  position: absolute;
+  bottom: 31px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #ffa500;
+  font-weight: 700;
+  font-size: 16px;
+}

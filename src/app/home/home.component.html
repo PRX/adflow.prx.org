@@ -1,0 +1,12 @@
+<div class="main">
+  <section>
+    <header>
+      <h2>Current & Upcoming Sponsorship Campaigns</h2>
+    </header>
+    <hr>
+    <prx-spinner *ngIf="!isLoaded"></prx-spinner>
+    <div *ngIf="podcasts && podcasts.length">
+      <adflow-home-podcast *ngFor="let p of podcasts" [podcast]="p"></adflow-home-podcast>
+    </div>
+  </section>
+</div>

@@ -17,7 +17,7 @@ export class CmsService extends HalBaseService {
     return Env.CMS_TTL;
   }
 
-  // pretty sure still need to get prx:authorization thru CMS 
+  // pretty sure still need to get prx:authorization thru CMS
   get auth(): HalObservable<HalDoc> {
     return this.follow('prx:authorization');
   }

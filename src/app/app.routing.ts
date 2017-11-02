@@ -2,7 +2,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard, UnauthGuard } from 'ngx-prx-styleguide';
-import { HomeComponent } from './home';
+import { HomeComponent, HomePodcastComponent, HomeCampaignComponent } from './home';
 import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
@@ -11,7 +11,9 @@ export const routes: Routes = [
 ];
 
 export const routingComponents: any[] = [
+  HomeCampaignComponent,
   HomeComponent,
+  HomePodcastComponent,
   LoginComponent
 ];
 

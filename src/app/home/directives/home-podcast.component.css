@@ -1,0 +1,30 @@
+header {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+  margin-bottom: 10px;
+}
+header h1 {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 100;
+}
+
+.campaign-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  margin-left: -10px;
+}
+adflow-home-campaign {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  margin-top: 10px;
+  margin-left: 10px;
+  flex-basis: 192px;
+  width: 192px;
+  height: 192px;
+  max-width: 192px;
+  background: #ddd;
+}
