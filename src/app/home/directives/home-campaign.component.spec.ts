@@ -51,8 +51,6 @@ describe('HomeCampaignComponent', () => {
     expect(start.nativeElement.textContent).toEqual('11/30/16');
     const end = de.query(By.css('.end'));
     expect(end.nativeElement.textContent).toEqual('12/31/16');
-
-    // TODO we don't have due dates yet in jingle
     const due = de.query(By.css('.due'));
     expect(start.nativeElement.textContent).not.toBeNull();
   });

@@ -27,11 +27,11 @@ export class HomeCampaignComponent implements OnInit {
   sponsor: HalDoc; // TODO should change to Sponsor Model
   statusText: string;
   statusClass: string;
-  dueDate: Date = new Date(); // TODO add due date to jingle campaigns
+  dueDate: Date = new Date();
   // sponsorImageDoc: HalDoc; TODO get images for sponsors
 
   ngOnInit() {
-    this.loadSponsor(); // TODO could just have name in Jingle response? or do we want full sponsor here?
+    this.loadSponsor();
     this.setStatus();
   }
 
@@ -48,7 +48,6 @@ export class HomeCampaignComponent implements OnInit {
     const startDate = new Date(this.campaign['start_date']);
     const endDate = new Date(this.campaign['end_date']);
 
-    // note, currently there is no 'approved' -- TODO add approval to jingle campaigns
     if (today < startDate && this.campaign['approved']) {
       this.statusText = 'ready';
       this.statusClass = 'status ready';
