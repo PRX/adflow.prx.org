@@ -5,7 +5,7 @@
     </header>
     <hr>
     <prx-spinner *ngIf="!isLoaded"></prx-spinner>
-    <div *ngIf="podcasts">
+    <div *ngIf="podcasts && podcasts.length">
       <adflow-home-podcast *ngFor="let p of podcasts" [podcast]="p"></adflow-home-podcast>
     </div>
   </section>

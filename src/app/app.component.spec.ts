@@ -61,25 +61,16 @@ describe('AppComponent', () => {
     });
   }));
 
-  it('should create the app', async(() => {
+  it('should create the app', () => {
     expect(comp).toBeTruthy();
-  }));
-  //
-  // it(`should only show podcast choices when logged in`, async(() => {
-  //   comp.loggedIn = true;
-  //   fix.detectChanges();
-  //   expect(de.query(By.css('adflow-home'))).not.toBeNull();
-  //   comp.loggedIn = false;
-  //   fix.detectChanges();
-  //   expect(de.query(By.css('adflow-home'))).toBeNull();
-  // }));
+  });
 
-  it('should show user info when logged in', async(() => {
+  it('should show user info when logged in', () => {
     comp.loggedIn = true;
     fix.detectChanges();
     expect(de.query(By.css('prx-navuser'))).toBeTruthy();
     comp.loggedIn = false;
     fix.detectChanges();
     expect(de.query(By.css('prx-navuser'))).toBeNull();
-  }));
+  });
 });

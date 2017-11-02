@@ -8,7 +8,7 @@ import { HalDoc } from '../../core';
   <header>
     <h1><a href="#">{{podcast.name}}</a></h1>
   </header>
-  <div class="campaign-list">
+  <div class="campaign-list" *ngIf="campaigns && campaigns.length">
     <adflow-home-campaign *ngFor="let c of campaigns" [campaign]="c"></adflow-home-campaign>
   </div>
   `
@@ -25,8 +25,9 @@ export class HomePodcastComponent implements OnInit {
   }
 
   loadCampaigns() {
-    this.podcast.followItems('prx:campaigns').subscribe(campaigns => {
-      this.campaigns = campaigns;
-    });
+    console.log(this.podcast);
+    // this.podcast.followItems('prx:campaigns').subscribe(campaigns => {
+    //   this.campaigns = campaigns;
+    // });
   }
 }

@@ -45,7 +45,7 @@ export class HomeCampaignComponent implements OnInit {
     const startDate = new Date(this.campaign['start_date']);
     const endDate = new Date(this.campaign['end_date']);
 
-    // note, currently there is no 'approved' -- TODO add to jingle
+    // note, currently there is no 'approved' -- TODO add approval to jingle campaigns
     if (today < startDate && this.campaign['approved']) {
       this.statusText = "ready"
       this.statusClass = 'status ready';
