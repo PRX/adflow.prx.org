@@ -1,3 +1,4 @@
+import { CampaignModel } from './campaign.model';
 import { BaseModel, HalDoc } from 'ngx-prx-styleguide';
 import { Observable } from 'rxjs/Observable';
 
@@ -9,7 +10,7 @@ export class PodcastModel extends BaseModel {
   public rate: string;
   public structure: string;
   public recordingDay: string;
-  public campaigns = []; //CampaignModel[] = [];
+  public campaigns: CampaignModel[] = [];
 
   SETABLE = []; // podcasts are read only
 
@@ -29,7 +30,9 @@ export class PodcastModel extends BaseModel {
   related(): {} {
     let campaigns = Observable.of([]);
     if (this.doc && this.doc.has('prx:campaigns')) {
-      campaigns = this.doc.followItems('prx:campaigns'); // turn to CampaignModel
+      campaigns = this.doc.followItems('prx:campaigns').map(cDocs => {
+        return cDocs.map(c => new CampaignModel(this.doc, c));
+      });
     }
     return { campaigns: campaigns };
   }

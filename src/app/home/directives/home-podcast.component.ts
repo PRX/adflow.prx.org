@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PodcastModel } from '../../shared'; // CampaignModel too
+import { PodcastModel } from '../../shared';
 
 @Component({
   selector: 'adflow-home-podcast',
@@ -15,7 +15,5 @@ import { PodcastModel } from '../../shared'; // CampaignModel too
 })
 
 export class HomePodcastComponent {
-
   @Input() podcast: PodcastModel;
-
 }

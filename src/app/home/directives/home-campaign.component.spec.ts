@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { MockHalDoc } from 'ngx-prx-styleguide';
 
 import { CoreModule } from './../../core';
-import { SharedModule } from './../../shared';
+import { SharedModule, CampaignModel } from './../../shared';
 import { HomeCampaignComponent } from './home-campaign.component';
 
 describe('HomeCampaignComponent', () => {
@@ -29,12 +29,12 @@ describe('HomeCampaignComponent', () => {
     }).compileComponents().then(() => {
       fix = TestBed.createComponent(HomeCampaignComponent);
       comp = fix.componentInstance;
-      comp.campaign = new MockHalDoc({
+      comp.campaign = new CampaignModel(null, new MockHalDoc({
         start_date: new Date('11/30/2016'),
         end_date: new Date('12/31/2016'),
         approved: false
-      });
-      comp.sponsor = new MockHalDoc({name: 'Sponsor One'});
+      }));
+      comp.campaign.sponsor = new MockHalDoc({name: 'Sponsor One'});
       fix.detectChanges();
       de = fix.debugElement;
       el = de.nativeElement;
@@ -59,16 +59,16 @@ describe('HomeCampaignComponent', () => {
     expect(comp.statusText).toEqual('past');
 
     const today = new Date();
-    comp.campaign['start_date'] = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 10);
-    comp.campaign['end_date'] = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 10);
+    comp.campaign.startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 10);
+    comp.campaign.endDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 10);
     comp.setStatus();
     expect(comp.statusText).toEqual('running');
 
-    comp.campaign['start_date'] = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 10);
+    comp.campaign.startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 10);
     comp.setStatus();
     expect(comp.statusText).toEqual('needs work');
 
-    comp.campaign['approved'] = true;
+    comp.campaign.approved = true;
     comp.setStatus();
     expect(comp.statusText).toEqual('ready');
   });
