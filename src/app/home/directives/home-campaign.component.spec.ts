@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { MockHalDoc } from 'ngx-prx-styleguide';
 
 import { CoreModule } from './../../core';
-import { SharedModule, CampaignModel } from './../../shared';
+import { SharedModule, CampaignModel, SponsorModel } from './../../shared';
 import { HomeCampaignComponent } from './home-campaign.component';
 
 describe('HomeCampaignComponent', () => {
@@ -34,7 +34,7 @@ describe('HomeCampaignComponent', () => {
         end_date: new Date('12/31/2016'),
         approved: false
       }));
-      comp.campaign.sponsor = new MockHalDoc({name: 'Sponsor One'});
+      comp.campaign.sponsor = new SponsorModel(new MockHalDoc({name: 'Sponsor One'}));
       fix.detectChanges();
       de = fix.debugElement;
       el = de.nativeElement;

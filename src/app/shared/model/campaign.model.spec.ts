@@ -8,10 +8,10 @@ describe('CampaignModel', () => {
     const cDoc = new MockHalDoc(data);
     cDoc.mock('prx:sponsor', extra.sponsor || {});
     return new CampaignModel(null, cDoc);
-  }
+  };
 
   it('loads data from the haldoc', () => {
-    let campaign = makeCampaign({copy: 'Say hello to world'});
+    const campaign = makeCampaign({copy: 'Say hello to world'});
     expect(campaign.copy).toEqual('Say hello to world');
     expect(campaign.isNew).toBeFalsy();
   });
@@ -21,10 +21,9 @@ describe('CampaignModel', () => {
   });
 
   it('loads related sponsor', () => {
-    let sponsor = {name: 'sponsor-one'};;
-    let campaign = makeCampaign({name: 'foo'}, {sponsor: sponsor});
+    const sponsor = {name: 'sponsor-one'};
+    const campaign = makeCampaign({name: 'foo'}, {sponsor: sponsor});
     expect(campaign.sponsor['name']).toEqual('sponsor-one');
   });
-
 
 });

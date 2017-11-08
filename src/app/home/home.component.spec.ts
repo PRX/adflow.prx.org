@@ -55,7 +55,7 @@ describe('HomeComponent', () => {
 
   it('should show podcasts', () => {
     expect(de.query(By.css('adflow-home-podcast'))).toBeNull();
-    const podDoc = new MockHalDoc({name: 'one'})
+    const podDoc = new MockHalDoc({name: 'one'});
     const podcast1 = new PodcastModel(podDoc);
     comp.podcasts = [podcast1];
     fix.detectChanges();

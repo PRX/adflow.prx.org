@@ -8,10 +8,10 @@ describe('PodcastModel', () => {
     const pDoc = new MockHalDoc(data);
     pDoc.mockItems('prx:campaigns', extra.campaigns || []);
     return new PodcastModel(pDoc);
-  }
+  };
 
   it('loads data from the haldoc', () => {
-    let podcast = makePodcast({name: 'Hello World'});
+    const podcast = makePodcast({name: 'Hello World'});
     expect(podcast.name).toEqual('Hello World');
     expect(podcast.isNew).toBeFalsy();
   });
@@ -21,10 +21,9 @@ describe('PodcastModel', () => {
   });
 
   it('loads related campaigns', () => {
-    let campaigns = [{id: 'campaign-one'}, {id: 'campaign-two'}];
-    let podcast = makePodcast({name: 'foo'}, {campaigns: campaigns});
+    const campaigns = [{id: 'campaign-one'}, {id: 'campaign-two'}];
+    const podcast = makePodcast({name: 'foo'}, {campaigns: campaigns});
     expect(podcast.campaigns.length).toEqual(2);
   });
-
 
 });
