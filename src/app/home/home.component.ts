@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
     this.isLoaded = false;
     this.jingle.podcasts.subscribe(pDocs => {
       this.isLoaded = true;
-      this.podcasts = pDocs.map((p) => new PodcastModel(p ,false)); // TODO why does flipping this to true make podcasts not show up?
+      this.podcasts = pDocs.map((p) => new PodcastModel(p));
     });
   }
 

@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { HalDoc } from '../../core';
+import { Component, Input } from '@angular/core';
 import { PodcastModel } from '../../shared'; // CampaignModel too
 
 @Component({
@@ -15,24 +14,8 @@ import { PodcastModel } from '../../shared'; // CampaignModel too
   `
 })
 
-export class HomePodcastComponent { //implements OnInit {
+export class HomePodcastComponent {
 
   @Input() podcast: PodcastModel;
 
-  // we should be able to get this all from podcast.campaigns once PodcastModel related() is working
-  //campaigns: HalDoc[]; // TODO should change to Campaign Model
-
-  // ngOnInit() {
-  //   console.log(' in home podcast oninit')
-  //   // this.loadCampaigns();
-  // }
-
-  // loadCampaigns() {
-  //   // follow doc
-  //   if (this.podcast.doc && this.podcast.doc.has('prx:campaigns')) {
-  //     this.podcast.doc.followItems('prx:campaigns').subscribe(campaigns => {
-  //       this.campaigns = campaigns;
-  //     });
-  //   }
-  // }
 }

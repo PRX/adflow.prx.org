@@ -1,9 +1,9 @@
 import { BaseModel, HalDoc } from 'ngx-prx-styleguide';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/forkJoin';
 
 export class PodcastModel extends BaseModel {
   public id: number;
-  public doc: HalDoc;
   public name: string;
   public network: string;
   public notes: string;
