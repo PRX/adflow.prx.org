@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JingleService, HalDoc } from '../core';
+import { JingleService } from '../core';
 import { PodcastModel } from '../shared';
 
 @Component({

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { MockHalDoc } from 'ngx-prx-styleguide';
 
 import { CoreModule, JingleService } from './../core';
-import { SharedModule } from './../shared';
+import { SharedModule, PodcastModel } from './../shared';
 import { HomeComponent } from './home.component';
 import { HomePodcastComponent } from './directives/home-podcast.component';
 import { HomeCampaignComponent } from './directives/home-campaign.component';
@@ -55,7 +55,8 @@ describe('HomeComponent', () => {
 
   it('should show podcasts', () => {
     expect(de.query(By.css('adflow-home-podcast'))).toBeNull();
-    const podcast1 = new MockHalDoc({name: 'one'});
+    const podDoc = new MockHalDoc({name: 'one'})
+    const podcast1 = new PodcastModel(podDoc);
     comp.podcasts = [podcast1];
     fix.detectChanges();
     expect(de.query(By.css('adflow-home-podcast'))).not.toBeNull();
