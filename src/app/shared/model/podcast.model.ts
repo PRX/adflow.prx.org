@@ -29,7 +29,6 @@ export class PodcastModel extends BaseModel {
   related(): {} {
     let campaigns = Observable.of([]);
     if (this.doc && this.doc.has('prx:campaigns')) {
-      console.log('has campaigns')
       campaigns = this.doc.followItems('prx:campaigns'); // turn to CampaignModel
     }
     return { campaigns: campaigns };
@@ -46,19 +45,7 @@ export class PodcastModel extends BaseModel {
   }
 
   encode(): {} {
-    let data = <any> {};
-    data.id = this.id;
-    data.name = this.name;
-    data.network = this.network;
-    data.notes = this.notes;
-    data.rate = this.rate;
-    data.structure = this.structure;
-    data.recordingDay = this.recordingDay;
-    // data.campaigns = this.campaigns;
-
-    // data.field = this.field;
-    // returns an object with the model's data used in persisting the underlying HalDoc
-    return data;
+    return {}; // podcasts are read only
   }
 
   saveNew(data: {}): Observable<HalDoc> {
