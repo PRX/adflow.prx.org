@@ -1,6 +1,6 @@
 import { BaseModel, HalDoc } from 'ngx-prx-styleguide';
 import { Observable } from 'rxjs/Observable';
-import { SponsorModel } from './sponsor.model'
+import { SponsorModel } from './sponsor.model';
 
 export class CampaignModel extends BaseModel {
   public id: number;
@@ -12,7 +12,7 @@ export class CampaignModel extends BaseModel {
   public approved = false;
   public sponsor: SponsorModel;
 
-  SETABLE = ['copy'];
+  SETABLE = ['copy', 'approved'];
 
   VALIDATORS = {};
 
@@ -53,6 +53,7 @@ export class CampaignModel extends BaseModel {
     data.dueDate = this.dueDate;
     data.copy = this.copy;
     data.zone = this.zone;
+    data.approved = this.approved;
     return data;
   }
 
