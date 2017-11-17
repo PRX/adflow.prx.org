@@ -30,7 +30,7 @@ export class SponsorModel extends BaseModel {
     this.id = this.doc['id'];
     this.name = this.doc['name'];
     this.notes = this.doc['notes'];
-    this.billingInfo = this.doc['billing_info'];
+    this.billingInfo = this.doc['billingInfo'];
   }
 
   encode(): {} {

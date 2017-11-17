@@ -30,8 +30,8 @@ describe('HomeCampaignComponent', () => {
       fix = TestBed.createComponent(HomeCampaignComponent);
       comp = fix.componentInstance;
       comp.campaign = new CampaignModel(null, new MockHalDoc({
-        start_date: new Date('11/30/2016'),
-        end_date: new Date('12/31/2016'),
+        startDate: new Date('11/30/2016'),
+        endDate: new Date('12/31/2016'),
         approved: false
       }));
       comp.campaign.sponsor = new SponsorModel(new MockHalDoc({name: 'Sponsor One'}));

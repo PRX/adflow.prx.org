@@ -24,6 +24,7 @@ describe('CreativeModel', () => {
     const newCreative = new CreativeModel(new MockHalDoc({id: 'campaign-id'}), null);
     expect(newCreative.key()).toContain('.new');
     expect(newCreative.key()).toContain('.campaign-id');
+    expect(newCreative.isNew).toBeTruthy();
   });
 
 });
