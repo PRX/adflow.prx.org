@@ -20,4 +20,10 @@ describe('CreativeModel', () => {
     expect(makeCreative({id: 'creative-id'}).key()).toContain('.creative-id');
   });
 
+  it('uses the campaign id for a new creative key', () => {
+    const newCreative = new CreativeModel(new MockHalDoc({id: 'campaign-id'}), null);
+    expect(newCreative.key()).toContain('.new');
+    expect(newCreative.key()).toContain('.campaign-id');
+  });
+
 });

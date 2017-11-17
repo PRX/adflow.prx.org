@@ -28,6 +28,8 @@ export class CreativeModel extends BaseModel {
   key(): string {
     if (this.doc) {
       return `prx.creative.${this.doc.id}`;
+    } else {
+      return `prx.creative.new.${this.parent.id}` // new creative in existing campaign
     }
   }
 
