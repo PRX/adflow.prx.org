@@ -4,10 +4,15 @@ campaign due date (days from now) | timefromnow pipe -->
 
 <prx-hero orange=true>
   <h1 class="hero-title" *ngIf="id">Edit Campaign</h1>
-  <div class="hero-info" *ngIf="campaign">
+  <div class="hero-info" *ngIf="campaign && campaign.sponsor">
     <h2>{{campaign.sponsor.name}}</h2>
-    <p>Last modified {{campaign.updatedAt}}</p>
+    <p class="run-dates">{{campaign.startDate | date:"MM/dd/yy"}} - {{campaign.endDate | date:"MM/dd/yy"}}</p>
+    <p class="notes">{{campaign.sponsor.notes}}</p>
+    <p class="due-date">Due {{campaign.dueDate | date:"MM/dd/yy"}} (X days from now)</p>
+    <p>Last modified {{campaign.updatedAt}}</p> <!-- do we need? -->
+
     <!--  TODO timeago pipe-->
+    <!--  TODO timefromnow pipe-->
     <!--  TODO add timestamps to api for jingle-->
   </div>
 
