@@ -1,1 +1,31 @@
-<h1>Campaign here</h1>
+<!-- sponsor logo
+campaign run dates
+campaign due date (days from now) | timefromnow pipe -->
+
+<prx-hero blue=true>
+  <h1 class="hero-title" *ngIf="id">Edit Campaign</h1>
+  <div class="hero-info" *ngIf="campaign">
+    <h2>{{campaign.sponsor.name}}</h2>
+    <p>Last modified {{campaign.updatedAt}}</p> <!--  | timeago -->
+  </div>
+
+  <div class="hero-actions" *ngIf="campaign">
+    <ng-container>
+      <prx-button [model]="campaign" plain=1 working=0 disabled=0 (click)="discard()">Discard</prx-button>
+      <prx-button [model]="campaign" (click)="save()">Save
+        <div *ngIf="campaign.invalid()" class="invalid-tip">
+          <h4>Invalid changes</h4>
+          <p>Correct them before saving</p>
+        </div>
+      </prx-button>
+      <prx-button working=0 disabled=1 [visible]="!campaign.changed()">Saved</prx-button>
+    </ng-container>
+  </div>
+</prx-hero>
+
+<prx-tabs [model]="campaign">
+  <nav>
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" [routerLink]="base">Script</a>
+    <a routerLinkActive="active" [routerLink]="[base, 'upload']">Upload</a>
+  </nav>
+</prx-tabs>
