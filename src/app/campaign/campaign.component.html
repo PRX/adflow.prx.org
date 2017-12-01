@@ -2,11 +2,13 @@
 campaign run dates
 campaign due date (days from now) | timefromnow pipe -->
 
-<prx-hero blue=true>
+<prx-hero orange=true>
   <h1 class="hero-title" *ngIf="id">Edit Campaign</h1>
   <div class="hero-info" *ngIf="campaign">
     <h2>{{campaign.sponsor.name}}</h2>
-    <p>Last modified {{campaign.updatedAt}}</p> <!--  | timeago -->
+    <p>Last modified {{campaign.updatedAt}}</p>
+    <!--  TODO timeago pipe-->
+    <!--  TODO add timestamps to api for jingle-->
   </div>
 
   <div class="hero-actions" *ngIf="campaign">

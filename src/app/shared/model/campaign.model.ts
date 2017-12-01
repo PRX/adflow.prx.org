@@ -7,6 +7,8 @@ export class CampaignModel extends BaseModel {
   public startDate: Date;
   public endDate: Date;
   public dueDate: Date;
+  public createdAt: Date;
+  public updatedAt: Date;
   public copy: string;
   public zone: string;
   public approved = false;
@@ -39,6 +41,8 @@ export class CampaignModel extends BaseModel {
     this.id = this.doc['id'];
     this.startDate = new Date(this.doc['startDate']);
     this.endDate = new Date(this.doc['endDate']);
+    this.createdAt = new Date(this.doc['createdAt']);
+    this.updatedAt = new Date(this.doc['updatedAt']);
     this.copy = this.doc['copy'];
     this.zone = this.doc['zone'];
     this.dueDate = this.doc['dueDate'] ? new Date(this.doc['dueDate']) : new Date(); // TODO add due date to campaigns
