@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 // import { CmsService } from '../core';
-import { ModalService, TabService, ToastrService } from 'ngx-prx-styleguide';
+import { TabService  } from 'ngx-prx-styleguide'; //ModalService, ToastrService
 import { CampaignModel } from '../shared';
 
 @Component({
@@ -20,8 +20,8 @@ export class CampaignComponent implements OnInit {
   campaign: CampaignModel;
 
   constructor(
-    private modal: ModalService,
-    private toastr: ToastrService,
+    // private modal: ModalService,
+    // private toastr: ToastrService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -59,7 +59,7 @@ export class CampaignComponent implements OnInit {
 
   save() {
     this.campaign.save().subscribe(() => {
-      this.toastr.success('Campaign saved');
+      // this.toastr.success('Campaign saved');
     });
   }
 
@@ -74,19 +74,19 @@ export class CampaignComponent implements OnInit {
   canDeactivate(next: any, prev: any): boolean | Observable<boolean> {
     if (this.campaign && this.campaign.changed() && !this.campaign.isDestroy) {
       let thatsOkay = new Subject<boolean>();
-      this.modal.confirm(
-        'Unsaved changes',
-        `This campaign has unsaved changes. You may discard the changes and
-          continue or click 'Cancel' to complete and save the campaign.`,
-        (confirm: boolean) => {
-          if (confirm) {
-            this.discard();
-          }
-          thatsOkay.next(confirm);
-          thatsOkay.complete();
-        },
-        'Discard'
-      );
+      // this.modal.confirm(
+      //   'Unsaved changes',
+      //   `This campaign has unsaved changes. You may discard the changes and
+      //     continue or click 'Cancel' to complete and save the campaign.`,
+      //   (confirm: boolean) => {
+      //     if (confirm) {
+      //       this.discard();
+      //     }
+      //     thatsOkay.next(confirm);
+      //     thatsOkay.complete();
+      //   },
+      //   'Discard'
+      // );
       return thatsOkay;
     } else {
       return true;

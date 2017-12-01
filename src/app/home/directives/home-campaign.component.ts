@@ -9,7 +9,7 @@ import { CampaignModel } from '../../shared';
   template: `
     <article *ngIf="campaign && campaign.sponsor">
       <h2>
-        <a [routerLink]="editLink">{{campaign.sponsor.name}}</a>
+        <a [routerLink]="['campaign', campaign.id]">{{campaign.sponsor.name}}</a>
       </h2>
       <span class="run-dates">
         <p class="start">{{campaign.startDate | date:"MM/dd/yy"}}</p>
@@ -25,7 +25,6 @@ import { CampaignModel } from '../../shared';
 export class HomeCampaignComponent implements OnInit {
 
   @Input() campaign: CampaignModel;
-  editLink = '#'; // TODO make this real
   sponsor: HalDoc; // TODO should change to Sponsor Model
   statusText: string;
   statusClass: string;
