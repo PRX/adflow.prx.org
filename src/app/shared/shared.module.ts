@@ -3,15 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { AuthGuard, DeactivateGuard, UnauthGuard, FancyFormModule, HeroModule, ImageModule, ModalModule, SpinnerModule } from 'ngx-prx-styleguide';
 
+import { TimeAgoPipe } from './date';
+
 @NgModule({
-  declarations: [],
+  declarations: [
+    TimeAgoPipe
+  ],
   exports: [
     CommonModule,
     FancyFormModule,
     ImageModule,
     HeroModule,
     ModalModule,
-    SpinnerModule
+    SpinnerModule,
+    TimeAgoPipe
   ],
   imports: [
     CommonModule,
