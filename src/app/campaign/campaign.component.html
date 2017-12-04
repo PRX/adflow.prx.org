@@ -8,7 +8,6 @@ campaign due date (days from now) | timefromnow pipe -->
     <h2>{{campaign.sponsor.name}}</h2>
     <p class="run-dates">{{campaign.startDate | date:"MM/dd/yy"}} - {{campaign.endDate | date:"MM/dd/yy"}}</p>
     <p class="notes">{{campaign.sponsor.notes}}</p>
-    <p class="due-date">Due {{campaign.dueDate | date:"MM/dd/yy"}} (X days from now)</p>
     <p>Last modified {{campaign.updatedAt}}</p> <!-- do we need? -->
 
     <!--  TODO timeago pipe-->
@@ -17,6 +16,10 @@ campaign due date (days from now) | timefromnow pipe -->
   </div>
 
   <div class="hero-actions" *ngIf="campaign">
+    <h4>
+      Due {{campaign.dueDate | date:"MM/dd/yy"}}
+      X days from now
+    </h4>
     <ng-container>
       <prx-button [model]="campaign" plain=1 working=0 disabled=0 (click)="discard()">Discard</prx-button>
       <prx-button [model]="campaign" (click)="save()">Save

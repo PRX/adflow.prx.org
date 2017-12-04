@@ -4,7 +4,15 @@
   color: black;
 }
 
-.due-date {
-  font-size: 16px;
-  font-weight: 500;
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+}
+.hero-actions h4 {
+  white-space: pre;
+  text-align: right;
+}
+.hero-actions prx-button, .hero-actions >>> button {
+  float: right;
 }
