@@ -14,7 +14,7 @@
   <div class="hero-actions" *ngIf="campaign">
     <h4>
       Due {{campaign.dueDate | date:"MM/dd/yy"}}
-      X days from now
+      {{campaign.dueDate | timefromnow}}
     </h4>
     <ng-container>
       <prx-button [model]="campaign" plain=1 working=0 disabled=0 (click)="discard()">Discard</prx-button>
