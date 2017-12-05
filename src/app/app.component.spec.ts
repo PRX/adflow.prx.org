@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { CoreModule, CmsService } from './core';
 
-import { AuthModule, AuthService, ModalModule, MockHalService, MockHalDoc } from 'ngx-prx-styleguide';
+import { AuthModule, AuthService, ModalModule, MockHalDoc } from 'ngx-prx-styleguide';
 
 import { SharedModule } from './shared';
 import { AppComponent } from './app.component';

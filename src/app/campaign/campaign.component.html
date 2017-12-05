@@ -5,10 +5,6 @@
     <p class="dates">{{campaign.startDate | date:"MM/dd/yy"}} - {{campaign.endDate | date:"MM/dd/yy"}}</p>
     <p class="notes">{{campaign.sponsor.notes}}</p>
     <p class="dates">Last modified {{campaign.updatedAt | timeago}}</p>
-
-    <!--  TODO timeago pipe-->
-    <!--  TODO timefromnow pipe-->
-    <!--  TODO add timestamps to api for jingle-->
   </div>
 
   <div class="hero-actions" *ngIf="campaign">
