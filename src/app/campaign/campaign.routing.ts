@@ -3,11 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard, DeactivateGuard } from 'ngx-prx-styleguide';
 
 import { CampaignComponent } from './campaign.component';
-// import { CampaignScriptComponent } from './directives/campaign-script.component';
+import { CampaignScriptComponent } from './directives/campaign-script.component';
 // import { CampaignUploadComponent } from './directives/campaign-upload.component';
 
 const campaignChildRoutes = [
-  // { path: '',          component: CampaignScriptComponent },
+  { path: '',          component: CampaignScriptComponent },
   // { path: 'upload', component: CampaignUploadComponent }
 ];
 
@@ -22,8 +22,8 @@ export const campaignRoutes: Routes = [
 ];
 
 export const campaignComponents: any[] = [
-  CampaignComponent
-  // CampaignScriptComponent,
+  CampaignComponent,
+  CampaignScriptComponent
   // CampaignUploadComponent
 ];
 
