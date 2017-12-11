@@ -69,10 +69,6 @@ export class CampaignComponent implements OnInit {
     this.campaign.discard();
   }
 
-  confirmDelete(event: MouseEvent): void {
-    // not sure we should allow them to delete whole campaign?
-  }
-
   // canDeactivate(next: any, prev: any): boolean | Observable<boolean> {
   //   if (this.campaign && this.campaign.changed() && !this.campaign.isDestroy) {
   //     let thatsOkay = new Subject<boolean>();

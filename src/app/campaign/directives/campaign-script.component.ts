@@ -5,7 +5,8 @@ import { CampaignModel } from '../../shared';
 import { TabService } from 'ngx-prx-styleguide';
 
 @Component({
-  template: `<h1>Script</h1>`
+  templateUrl: 'campaign-script.component.html',
+  styleUrls: ['campaign-script.component.css']
 })
 
 export class CampaignScriptComponent implements OnDestroy {
