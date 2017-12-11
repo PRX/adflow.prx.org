@@ -1,0 +1,19 @@
+.sponsor-provided {
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+.sponsor-provided h1, h3 {
+  font-weight: 400;
+  font-size: 20px;
+}
+.sponsor-provided h3 {
+  font-size: 16px;
+}
+.sponsor-provided p {
+  padding: 5px 0 10px 10px;
+}
+
+prx-fancy-field {
+  border-top: 1px solid #bbb;
+  padding-top: 5px;
+}

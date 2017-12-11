@@ -62,6 +62,7 @@ export class CampaignComponent implements OnInit {
   }
 
   save() {
+    // TODO add PUT request support to jingle -- getting CORS error now
     this.campaign.save();
   }
 
