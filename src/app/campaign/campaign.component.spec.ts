@@ -12,7 +12,7 @@ import { MockHalService } from 'ngx-prx-styleguide';
 import { JingleService, CoreModule } from '../core';
 import { SharedModule } from '../shared';
 
-import { stubPipe } from '../../testing';
+import { stubPipe } from '../../testing/helpers';
 
 let activatedRoute = new ActivatedRouteStub();
 let router = new RouterStub();

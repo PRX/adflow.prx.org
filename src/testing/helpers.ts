@@ -1,5 +1,4 @@
 import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
 import { Pipe, PipeTransform } from '@angular/core';
 
 // nicely stringify a debug/native element
