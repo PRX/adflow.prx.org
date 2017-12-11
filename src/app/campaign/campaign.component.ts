@@ -4,7 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 import { JingleService } from '../core';
-import { TabService  } from 'ngx-prx-styleguide'; //ModalService, ToastrService
+import { TabService } from 'ngx-prx-styleguide';
+
 import { CampaignModel } from '../shared';
 
 @Component({
@@ -22,8 +23,6 @@ export class CampaignComponent implements OnInit {
   isLoaded = false;
 
   constructor(
-    // private modal: ModalService,
-    // private toastr: ToastrService,
     private jingle: JingleService,
     private route: ActivatedRoute,
     private router: Router

@@ -1,12 +1,6 @@
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-
-// find a component within a debug element
-export function findComponent(el: DebugElement, tagName: string): any {
-  let subEl = el.query(By.css(tagName));
-  expect(subEl).not.toBeNull(`Unable to find component ${tagName}`);
-  return subEl.componentInstance;
-}
+import { Pipe, PipeTransform } from '@angular/core';
 
 // nicely stringify a debug/native element
 export function niceEl(el: DebugElement|any): string {
@@ -31,4 +25,14 @@ export function niceEl(el: DebugElement|any): string {
   } else {
     return `${el}`;
   }
+}
+
+export function stubPipe(name, transformFn?) {
+  @Pipe({name: name})
+  class TestStubPipe implements PipeTransform {
+    transform(val: any): any {
+      return transformFn ? transformFn(val) : `${val}`;
+    }
+  }
+  return TestStubPipe;
 }
