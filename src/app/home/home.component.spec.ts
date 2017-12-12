@@ -4,13 +4,12 @@ import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable } from 'rxjs/Observable';
 
-import { MockHalDoc } from 'ngx-prx-styleguide';
-
 import { CoreModule, JingleService } from './../core';
 import { SharedModule, PodcastModel } from './../shared';
 import { HomeComponent } from './home.component';
 import { HomePodcastComponent } from './directives/home-podcast.component';
 import { HomeCampaignComponent } from './directives/home-campaign.component';
+import { makeModel } from '../../testing/helpers';
 
 describe('HomeComponent', () => {
   let comp: HomeComponent;
@@ -55,8 +54,7 @@ describe('HomeComponent', () => {
 
   it('should show podcasts', () => {
     expect(de.query(By.css('adflow-home-podcast'))).toBeNull();
-    const podDoc = new MockHalDoc({name: 'one'});
-    const podcast1 = new PodcastModel(podDoc);
+    const podcast1 = makeModel(PodcastModel, {name: 'podcast-one'});
     comp.podcasts = [podcast1];
     fix.detectChanges();
     expect(de.query(By.css('adflow-home-podcast'))).not.toBeNull();

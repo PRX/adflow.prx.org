@@ -32,7 +32,7 @@ export class CampaignModel extends BaseModel {
   related(): {} {
     let sponsor = Observable.of(null);
     if (this.doc && this.doc.has('prx:sponsor')) {
-      sponsor = this.doc.follow('prx:sponsor').map(sDoc => new SponsorModel(sDoc));
+      sponsor = this.doc.follow('prx:sponsor').map(sDoc => new SponsorModel(null, sDoc));
     }
     return { sponsor: sponsor };
   }

@@ -25,7 +25,6 @@ import { CampaignModel } from '../../shared';
 export class HomeCampaignComponent implements OnInit {
 
   @Input() campaign: CampaignModel;
-  sponsor: HalDoc; // TODO should change to Sponsor Model
   statusText: string;
   statusClass: string;
   // sponsorImageDoc: HalDoc; TODO get images for sponsors

@@ -1,5 +1,6 @@
 import { DebugElement } from '@angular/core';
 import { Pipe, PipeTransform } from '@angular/core';
+import { MockHalDoc } from 'ngx-prx-styleguide';
 
 // nicely stringify a debug/native element
 export function niceEl(el: DebugElement|any): string {
@@ -34,4 +35,20 @@ export function stubPipe(name, transformFn?) {
     }
   }
   return TestStubPipe;
+}
+
+export function makeModel(modelType: any, data?: any, parent?: any, mocks?: any) {
+  const parentDoc = parent ? new MockHalDoc(parent) : null;
+  const modelDoc = new MockHalDoc(data);
+
+  if (mocks) {
+    for (let mockItem in mocks) {
+      if (mocks[mockItem] instanceof Array) {
+        modelDoc.mockItems(`prx:${mockItem}`, mocks[mockItem]);
+      } else {
+        modelDoc.mock(`prx:${mockItem}`, mocks[mockItem]);
+      }
+    }
+  }
+  return new modelType(parentDoc, modelDoc);
 }
