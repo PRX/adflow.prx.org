@@ -1,9 +1,7 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { DebugElement, Component } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
-
-import { RouterStub, ActivatedRouteStub } from '../../testing/stub.router';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { CampaignComponent } from './campaign.component';
@@ -12,11 +10,12 @@ import { MockHalService } from 'ngx-prx-styleguide';
 import { JingleService, CoreModule } from '../core';
 import { SharedModule } from '../shared';
 
+import { ActivatedRouteStub } from '../../testing/stub.router';
 import { stubPipe } from '../../testing/helpers';
 
 const activatedRoute = new ActivatedRouteStub();
-const router = new RouterStub();
 const jingle = new MockHalService().root;
+
 const mockCampaign = {
   id: 99,
   copy: 'my campaign',
@@ -49,8 +48,7 @@ describe('CampaignComponent', () => {
       ],
       providers: [
         {provide: JingleService, useValue: jingle},
-        {provide: ActivatedRoute, useValue: activatedRoute},
-        {provide: Router, useValue: router}
+        {provide: ActivatedRoute, useValue: activatedRoute}
       ]
     }).compileComponents().then(() => {
       fix = TestBed.createComponent(CampaignComponent);
