@@ -14,3 +14,7 @@
 .hero-actions prx-button, .hero-actions >>> button {
   float: right;
 }
+
+prx-hero >>> .affix {
+  overflow: hidden;
+}
