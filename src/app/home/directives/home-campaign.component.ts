@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HalDoc } from '../../core';
 import { CampaignModel } from '../../shared';
 
 
@@ -27,7 +26,7 @@ export class HomeCampaignComponent implements OnInit {
   @Input() campaign: CampaignModel;
   statusText: string;
   statusClass: string;
-  // sponsorImageDoc: HalDoc; TODO get images for sponsors
+  // sponsorImageDoc: TODO get images for sponsors
 
   ngOnInit() {
     this.setStatus();

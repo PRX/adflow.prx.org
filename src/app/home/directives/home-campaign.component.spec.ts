@@ -51,7 +51,7 @@ describe('HomeCampaignComponent', () => {
     const end = de.query(By.css('.end'));
     expect(end.nativeElement.textContent).toEqual('12/31/16');
     const due = de.query(By.css('.due'));
-    expect(start.nativeElement.textContent).not.toBeNull();
+    expect(due.nativeElement.textContent).not.toBeNull();
   });
 
   it('should determine status of campaign from date and approval', () => {
