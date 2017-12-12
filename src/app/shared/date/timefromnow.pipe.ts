@@ -6,29 +6,29 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TimeFromNowPipe implements PipeTransform {
 
   transform(value: Date): string {
-    let now = new Date();
+    const now = new Date();
     let secondsInFuture = Math.floor((value.getTime() - now.getTime()) / 1000);
 
     if (secondsInFuture < 60) {
       return 'Immediately';
     } else if (secondsInFuture < 3600) {
-      let minutes = Math.floor(secondsInFuture / 60);
-      let noun = (minutes === 1) ? 'minute' : 'minutes';
+      const minutes = Math.floor(secondsInFuture / 60);
+      const noun = (minutes === 1) ? 'minute' : 'minutes';
       return `In ${minutes} ${noun}`;
     } else if (secondsInFuture < 86400) {
-      let hours = Math.floor(secondsInFuture / 3600);
-      let noun = (hours === 1) ? 'hour' : 'hours';
+      const hours = Math.floor(secondsInFuture / 3600);
+      const noun = (hours === 1) ? 'hour' : 'hours';
       return `In about ${hours} ${noun}`;
     } else if (secondsInFuture < 604800) {
-      let days = Math.floor(secondsInFuture / 86400);
-      let noun = (days === 1) ? 'day' : 'days';
+      const days = Math.floor(secondsInFuture / 86400);
+      const noun = (days === 1) ? 'day' : 'days';
       return `In about ${days} ${noun}`;
     } else if (secondsInFuture < 1209600) {
-      let weeks = Math.floor(secondsInFuture / 604800);
-      let weekNoun = (weeks === 1) ? 'week' : 'weeks';
+      const weeks = Math.floor(secondsInFuture / 604800);
+      const weekNoun = (weeks === 1) ? 'week' : 'weeks';
       secondsInFuture %= 604800;
-      let days = Math.floor(secondsInFuture / 86400);
-      let dayNoun = (days === 1) ? 'day' : 'days';
+      const days = Math.floor(secondsInFuture / 86400);
+      const dayNoun = (days === 1) ? 'day' : 'days';
       return `In ${weeks} ${weekNoun} ${days} ${dayNoun}`;
     }
   }

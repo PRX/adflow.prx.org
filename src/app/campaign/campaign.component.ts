@@ -42,7 +42,7 @@ export class CampaignComponent implements OnInit {
       this.jingle.follow('prx:campaign', {id: this.id}).subscribe(
         (cDoc) => {
           this.isLoaded = true;
-          this.setCampaign(null, cDoc)
+          this.setCampaign(null, cDoc);
         },
         err => {
           if (err.status === 404 && err.name === 'HalHttpError') {
@@ -53,7 +53,7 @@ export class CampaignComponent implements OnInit {
             throw(err);
           }
         }
-      )
+      );
     }
   }
 

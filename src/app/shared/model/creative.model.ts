@@ -29,7 +29,7 @@ export class CreativeModel extends BaseModel {
     if (this.doc) {
       return `prx.creative.${this.doc.id}`;
     } else {
-      return `prx.creative.new.${this.parent.id}` // new creative in existing campaign
+      return `prx.creative.new.${this.parent.id}`; // new creative in existing campaign
     }
   }
 

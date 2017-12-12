@@ -14,20 +14,20 @@ import { SharedModule } from '../shared';
 
 import { stubPipe } from '../../testing/helpers';
 
-let activatedRoute = new ActivatedRouteStub();
-let router = new RouterStub();
-let jingle = new MockHalService().root;
-let mockCampaign = {
+const activatedRoute = new ActivatedRouteStub();
+const router = new RouterStub();
+const jingle = new MockHalService().root;
+const mockCampaign = {
   id: 99,
   copy: 'my campaign',
   startDate: new Date(),
   endDate: new Date(),
-}
+};
 jingle.mock('prx:campaign', mockCampaign)
       .mock('prx:sponsor', {name: 'Dogs Everywhere'});
 
-let stubTimeAgoPipe = stubPipe('timeago');
-let stubTimeFromNowPipe = stubPipe('timefromnow');
+const stubTimeAgoPipe = stubPipe('timeago');
+const stubTimeFromNowPipe = stubPipe('timefromnow');
 
 describe('CampaignComponent', () => {
   let comp: CampaignComponent;

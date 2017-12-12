@@ -9,11 +9,11 @@ export function niceEl(el: DebugElement|any): string {
   }
   if (el.tagName) {
     let str = `<${el.tagName.toLowerCase()}`;
-    for (let a of el.attributes) {
+    for (const a of el.attributes) {
       if (a.name[0] !== '_') { str += ` ${a.name}=${a.value}`; }
     }
     str += '>';
-    for (let n of el.childNodes) {
+    for (const n of el.childNodes) {
       if (n.nodeType === 1) {
         str += niceEl(n);
       } else if (n.nodeType !== 8) {
@@ -42,7 +42,7 @@ export function makeModel(modelType: any, data?: any, parent?: any, mocks?: any)
   const modelDoc = new MockHalDoc(data);
 
   if (mocks) {
-    for (let mockItem in mocks) {
+    for (const mockItem in mocks) {
       if (mocks[mockItem] instanceof Array) {
         modelDoc.mockItems(`prx:${mockItem}`, mocks[mockItem]);
       } else {

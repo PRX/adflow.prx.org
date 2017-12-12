@@ -2,8 +2,8 @@ import { TimeFromNowPipe } from './timefromnow.pipe';
 
 describe('TimeFromNowPipe', () => {
 
-  let pipe = new TimeFromNowPipe();
-  let baseTime = new Date('2000-01-01T12:00:00+00:00');
+  const pipe = new TimeFromNowPipe();
+  const baseTime = new Date('2000-01-01T12:00:00+00:00');
 
   const transform = (dateStr: string): string => {
     return pipe.transform(new Date(dateStr));

@@ -42,4 +42,4 @@ describe('CampaignScriptComponent', () => {
     fix.detectChanges();
     expect(de.query(By.css('prx-fancy-field'))).not.toBeNull();
   });
-})
+});
