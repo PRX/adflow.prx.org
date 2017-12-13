@@ -30,6 +30,7 @@ describe('HomeCampaignComponent', () => {
       const campaignData = {
         startDate: new Date('11/30/2016'),
         endDate: new Date('12/31/2016'),
+        dueDate: new Date(),
         approved: false
       };
       const sponsorMock = {name: 'Sponsor One'};

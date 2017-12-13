@@ -4,8 +4,8 @@ import { makeModel } from '../../../testing/helpers';
 describe('CampaignModel', () => {
 
   it('loads data from the haldoc', () => {
-    const campaign = makeModel(CampaignModel, {copy: 'Say hello to world'});
-    expect(campaign.copy).toEqual('Say hello to world');
+    const campaign = makeModel(CampaignModel, {originalCopy: 'Say hello to world'});
+    expect(campaign.originalCopy).toEqual('Say hello to world');
     expect(campaign.isNew).toBeFalsy();
   });
 

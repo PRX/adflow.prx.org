@@ -38,7 +38,7 @@ describe('CampaignScriptComponent', () => {
   it('does not render until the campaign is loaded', () => {
     expect(de.query(By.css('prx-fancy-field'))).toBeNull();
     const sponsorMock = {name: 'Dog company'};
-    comp.campaign = makeModel(CampaignModel, {copy: 'Dogs everywhere'}, null, {sponsor: sponsorMock});
+    comp.campaign = makeModel(CampaignModel, {originalCopy: 'Dogs everywhere'}, null, {sponsor: sponsorMock});
     fix.detectChanges();
     expect(de.query(By.css('prx-fancy-field'))).not.toBeNull();
   });

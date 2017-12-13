@@ -18,9 +18,10 @@ const jingle = new MockHalService().root;
 
 const mockCampaign = {
   id: 99,
-  copy: 'my campaign',
+  originalCopy: 'my campaign',
   startDate: new Date(),
   endDate: new Date(),
+  dueDate: new Date(),
 };
 jingle.mock('prx:campaign', mockCampaign)
       .mock('prx:sponsor', {name: 'Dogs Everywhere'});
@@ -65,7 +66,7 @@ describe('CampaignComponent', () => {
     activatedRoute.testParams = {id: '99'};
     fix.detectChanges();
     expect(comp.campaign.id).toEqual(99);
-    expect(comp.campaign.copy).toEqual('my campaign');
+    expect(comp.campaign.originalCopy).toEqual('my campaign');
     const sponsorName = de.query(By.css('.hero-info')).query(By.css('h2'));
     expect(sponsorName.nativeElement.textContent).toEqual('Dogs Everywhere');
   });
