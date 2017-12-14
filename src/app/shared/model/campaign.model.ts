@@ -1,6 +1,7 @@
 import { BaseModel, HalDoc } from 'ngx-prx-styleguide';
 import { Observable } from 'rxjs/Observable';
 import { SponsorModel } from './sponsor.model';
+import { toLocal } from '../date';
 
 export class CampaignModel extends BaseModel {
   public id: number;
@@ -50,7 +51,8 @@ export class CampaignModel extends BaseModel {
     this.startDate = new Date(this.doc['startDate']);
     this.endDate = new Date(this.doc['endDate']);
     this.dueDate = new Date(this.doc['dueDate']);
-    this.updatedAt = new Date(this.doc['updatedAt']);
+    this.updatedAt = toLocal(new Date(this.doc['updatedAt']));
+    // convert to user's local time in order to compare to now
     this.approved = this.doc['approved']; // TODO add helper method to compare this to whether sponsor requires approval
   }
 

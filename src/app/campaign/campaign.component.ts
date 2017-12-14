@@ -46,7 +46,7 @@ export class CampaignComponent implements OnInit {
         },
         err => {
           if (err.status === 404 && err.name === 'HalHttpError') {
-            // this.toastr.error('No campaign found. Redirecting to home');
+            // pop a toaster error alert
             console.error(`Campaign with id ${this.id} not found`);
             setTimeout(() => this.router.navigate(['/']), 3000);
           } else {
@@ -62,7 +62,7 @@ export class CampaignComponent implements OnInit {
   }
 
   save() {
-    this.campaign.save().subscribe(()=>{
+    this.campaign.save().subscribe(() => {
       // eventually pop a toastr alert here
     });
   }
