@@ -55,10 +55,11 @@ export class CampaignModel extends BaseModel {
   }
 
   encode(): {} {
-    const data = <any> {};
-    data.edited_copy = this.editedCopy;
-    data.approved = this.approved;
-    return data;
+    const data = <any> { edited_copy : this.editedCopy };
+    if (data.approved) {
+      data.approved = this.approved;
+    }
+    return { campaign: data };
   }
 
   saveNew(data: {}): Observable<HalDoc> {

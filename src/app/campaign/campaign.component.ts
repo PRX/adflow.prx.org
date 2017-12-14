@@ -62,7 +62,9 @@ export class CampaignComponent implements OnInit {
   }
 
   save() {
-    this.campaign.save();
+    this.campaign.save().subscribe(()=>{
+      // eventually pop a toastr alert here
+    });
   }
 
   discard() {
