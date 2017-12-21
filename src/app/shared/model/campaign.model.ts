@@ -50,7 +50,7 @@ export class CampaignModel extends BaseModel {
     this.zone = this.doc['zone'];
     this.startDate = new Date(this.doc['startDate']);
     this.endDate = new Date(this.doc['endDate']);
-    this.dueDate = new Date(this.doc['dueDate']);
+    this.dueDate = toLocal(new Date(this.doc['dueDate']));
     this.updatedAt = toLocal(new Date(this.doc['updatedAt']));
     // convert to user's local time in order to compare to now
     this.approved = this.doc['approved']; // TODO add helper method to compare this to whether sponsor requires approval
