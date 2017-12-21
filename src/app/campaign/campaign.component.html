@@ -19,7 +19,7 @@
         </prx-button>
         <prx-button working=0 disabled=1 [visible]="!campaign.changed()">Saved</prx-button>
       </div>
-      <h4>
+      <h4 *ngIf="campaign.dueDate">
         Due {{campaign.dueDate | date:"MM/dd/yy"}}
         {{campaign.dueDate | timefromnow}}
       </h4>
