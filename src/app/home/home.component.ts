@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
     this.isLoaded = false;
     this.jingle.podcasts.subscribe(pDocs => {
       this.isLoaded = true;
-      this.podcasts = pDocs.map((p) => new PodcastModel(p));
+      this.podcasts = pDocs.map((p) => new PodcastModel(null, p));
     });
   }
 

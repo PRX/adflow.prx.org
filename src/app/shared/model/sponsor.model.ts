@@ -11,9 +11,9 @@ export class SponsorModel extends BaseModel {
 
   VALIDATORS = {};
 
-  constructor(sponsor: HalDoc, loadRelated = true) {
+  constructor(parent = null, sponsor: HalDoc, loadRelated = true) {
     super();
-    this.init(null, sponsor, loadRelated);
+    this.init(parent, sponsor, loadRelated);
   }
 
   key(): string {

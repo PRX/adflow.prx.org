@@ -1,28 +1,21 @@
-import { Observable } from 'rxjs/Observable';
-import { MockHalDoc } from 'ngx-prx-styleguide';
 import { CampaignModel } from './campaign.model';
+import { makeModel } from '../../../testing/helpers';
 
 describe('CampaignModel', () => {
 
-  const makeCampaign = (data?: any, extra: any = {} ) => {
-    const cDoc = new MockHalDoc(data);
-    cDoc.mock('prx:sponsor', extra.sponsor || {});
-    return new CampaignModel(null, cDoc);
-  };
-
   it('loads data from the haldoc', () => {
-    const campaign = makeCampaign({copy: 'Say hello to world'});
-    expect(campaign.copy).toEqual('Say hello to world');
+    const campaign = makeModel(CampaignModel, {originalCopy: 'Say hello to world'});
+    expect(campaign.originalCopy).toEqual('Say hello to world');
     expect(campaign.isNew).toBeFalsy();
   });
 
   it('uses the campaign id for the key', () => {
-    expect(makeCampaign({id: 'campaign-id'}).key()).toContain('.campaign-id');
+    expect(makeModel(CampaignModel, {id: 'campaign-id'}).key()).toContain('.campaign-id');
   });
 
   it('loads related sponsor', () => {
     const sponsor = {name: 'sponsor-one'};
-    const campaign = makeCampaign({name: 'foo'}, {sponsor: sponsor});
+    const campaign = makeModel(CampaignModel, {name: 'foo'}, null, {sponsor: sponsor});
     expect(campaign.sponsor['name']).toEqual('sponsor-one');
   });
 

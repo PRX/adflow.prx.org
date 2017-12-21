@@ -1,0 +1,15 @@
+<form *ngIf="campaign && campaign.sponsor">
+  <div class="sponsor-provided">
+    <h1>{{campaign.sponsor.name}} suggests:</h1>
+    <p>{{campaign.originalCopy}}</p>
+
+    <h3>Notes</h3>
+    <p>{{campaign.notes}}</p>
+
+    <h3>Must Say Verbatim</h3>
+    <p>{{campaign.mustSay}}</p>
+  </div>
+  <hr>
+  <prx-fancy-field textinput required [model]="campaign" label="Your script" name="editedCopy">
+  </prx-fancy-field>
+</form>

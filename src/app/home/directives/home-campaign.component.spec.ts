@@ -2,13 +2,11 @@ import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Observable } from 'rxjs/Observable';
-
-import { MockHalDoc } from 'ngx-prx-styleguide';
 
 import { CoreModule } from './../../core';
-import { SharedModule, CampaignModel, SponsorModel } from './../../shared';
+import { SharedModule, CampaignModel } from './../../shared';
 import { HomeCampaignComponent } from './home-campaign.component';
+import { makeModel } from '../../../testing/helpers';
 
 describe('HomeCampaignComponent', () => {
   let comp: HomeCampaignComponent;
@@ -29,12 +27,14 @@ describe('HomeCampaignComponent', () => {
     }).compileComponents().then(() => {
       fix = TestBed.createComponent(HomeCampaignComponent);
       comp = fix.componentInstance;
-      comp.campaign = new CampaignModel(null, new MockHalDoc({
+      const campaignData = {
         startDate: new Date('11/30/2016'),
         endDate: new Date('12/31/2016'),
+        dueDate: new Date(),
         approved: false
-      }));
-      comp.campaign.sponsor = new SponsorModel(new MockHalDoc({name: 'Sponsor One'}));
+      };
+      const sponsorMock = {name: 'Sponsor One'};
+      comp.campaign = makeModel(CampaignModel, campaignData, null, {sponsor: sponsorMock});
       fix.detectChanges();
       de = fix.debugElement;
       el = de.nativeElement;
@@ -52,7 +52,7 @@ describe('HomeCampaignComponent', () => {
     const end = de.query(By.css('.end'));
     expect(end.nativeElement.textContent).toEqual('12/31/16');
     const due = de.query(By.css('.due'));
-    expect(start.nativeElement.textContent).not.toBeNull();
+    expect(due.nativeElement.textContent).not.toBeNull();
   });
 
   it('should determine status of campaign from date and approval', () => {

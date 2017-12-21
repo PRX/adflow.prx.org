@@ -16,9 +16,9 @@ export class PodcastModel extends BaseModel {
 
   VALIDATORS = {};
 
-  constructor(podcast: HalDoc, loadRelated = true) {
+  constructor(parent = null, podcast: HalDoc, loadRelated = true) {
     super();
-    this.init(null, podcast, loadRelated);
+    this.init(parent, podcast, loadRelated);
   }
 
   key(): string {

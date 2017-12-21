@@ -2,14 +2,12 @@ import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Observable } from 'rxjs/Observable';
-
-import { MockHalDoc } from 'ngx-prx-styleguide';
 
 import { CoreModule } from './../../core';
-import { SharedModule, PodcastModel, CampaignModel } from './../../shared';
+import { SharedModule, PodcastModel } from './../../shared';
 import { HomePodcastComponent } from './home-podcast.component';
 import { HomeCampaignComponent } from './home-campaign.component';
+import { makeModel } from '../../../testing/helpers';
 
 describe('HomePodcastComponent', () => {
   let comp: HomePodcastComponent;
@@ -31,7 +29,7 @@ describe('HomePodcastComponent', () => {
     }).compileComponents().then(() => {
       fix = TestBed.createComponent(HomePodcastComponent);
       comp = fix.componentInstance;
-      comp.podcast = new PodcastModel(new MockHalDoc({name: 'Podcast One'}));
+      comp.podcast = makeModel(PodcastModel, {name: 'Podcast One'});
       fix.detectChanges();
       de = fix.debugElement;
       el = de.nativeElement;
@@ -45,8 +43,7 @@ describe('HomePodcastComponent', () => {
 
   it('should show campaigns for podcast', () => {
     expect(de.query(By.css('adflow-home-campaign'))).toBeNull();
-    const campaign1 = new CampaignModel(comp.podcast.doc, new MockHalDoc({name: 'one'}));
-    comp.podcast.campaigns = [campaign1];
+    comp.podcast = makeModel(PodcastModel, {name: 'Podcast One'}, null, {campaigns: [{name: 'campaign-one'}]});
     fix.detectChanges();
     expect(de.query(By.css('adflow-home-campaign'))).not.toBeNull();
   });

@@ -1,0 +1,20 @@
+.dates {
+  color: #343434;
+  margin: 10px 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+}
+.hero-actions h4 {
+  white-space: pre;
+  text-align: right;
+}
+.hero-actions prx-button, .hero-actions >>> button {
+  float: right;
+}
+
+prx-hero >>> .affix {
+  overflow: hidden;
+}

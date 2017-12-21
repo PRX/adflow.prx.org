@@ -1,18 +1,24 @@
 import { BaseModel, HalDoc } from 'ngx-prx-styleguide';
 import { Observable } from 'rxjs/Observable';
 import { SponsorModel } from './sponsor.model';
+import { toLocal } from '../date';
 
 export class CampaignModel extends BaseModel {
   public id: number;
   public startDate: Date;
   public endDate: Date;
   public dueDate: Date;
-  public copy: string;
+  public createdAt: Date;
+  public updatedAt: Date;
+  public originalCopy: string;
+  public editedCopy: string;
+  public mustSay: string;
   public zone: string;
+  public notes: string;
   public approved = false;
   public sponsor: SponsorModel;
 
-  SETABLE = ['copy', 'approved'];
+  SETABLE = ['editedCopy', 'approved'];
 
   VALIDATORS = {};
 
@@ -30,31 +36,32 @@ export class CampaignModel extends BaseModel {
   related(): {} {
     let sponsor = Observable.of(null);
     if (this.doc && this.doc.has('prx:sponsor')) {
-      sponsor = this.doc.follow('prx:sponsor').map(sDoc => new SponsorModel(sDoc));
+      sponsor = this.doc.follow('prx:sponsor').map(sDoc => new SponsorModel(null, sDoc));
     }
     return { sponsor: sponsor };
   }
 
   decode(): void {
     this.id = this.doc['id'];
+    this.originalCopy = this.doc['originalCopy'];
+    this.editedCopy = this.doc['editedCopy'] || this.doc['mustSay'];
+    this.mustSay = this.doc['mustSay'];
+    this.notes = this.doc['notes'];
+    this.zone = this.doc['zone'];
     this.startDate = new Date(this.doc['startDate']);
     this.endDate = new Date(this.doc['endDate']);
-    this.copy = this.doc['copy'];
-    this.zone = this.doc['zone'];
-    this.dueDate = this.doc['dueDate'] ? new Date(this.doc['dueDate']) : new Date(); // TODO add due date to campaigns
-    this.approved = this.doc['approved']; // TODO add approved to campaigns
+    this.dueDate = toLocal(new Date(this.doc['dueDate']));
+    this.updatedAt = toLocal(new Date(this.doc['updatedAt']));
+    // convert to user's local time in order to compare to now
+    this.approved = this.doc['approved']; // TODO add helper method to compare this to whether sponsor requires approval
   }
 
   encode(): {} {
-    const data = <any> {};
-    data.id = this.id;
-    data.startDate = this.startDate;
-    data.endDate = this.endDate;
-    data.dueDate = this.dueDate;
-    data.copy = this.copy;
-    data.zone = this.zone;
-    data.approved = this.approved;
-    return data;
+    const data = <any> { edited_copy : this.editedCopy };
+    if (data.approved) {
+      data.approved = this.approved;
+    }
+    return { campaign: data };
   }
 
   saveNew(data: {}): Observable<HalDoc> {

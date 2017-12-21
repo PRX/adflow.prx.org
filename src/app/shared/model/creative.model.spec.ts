@@ -1,23 +1,18 @@
-import { Observable } from 'rxjs/Observable';
 import { MockHalDoc } from 'ngx-prx-styleguide';
+import { makeModel } from '../../../testing/helpers';
 import { CreativeModel } from './creative.model';
 
 describe('CreativeModel', () => {
 
-  const makeCreative = (data?: any) => {
-    const campaignDoc = new MockHalDoc({copy: 'test-campaign'});
-    const creativeDoc = new MockHalDoc(data);
-    return new CreativeModel(campaignDoc, creativeDoc);
-  };
-
   it('loads data from the haldoc', () => {
-    const creative = makeCreative({filename: 'creative-one'});
+    const creative = makeModel(CreativeModel, {filename: 'creative-one'}, {originalCopy: 'parent campaign copy'});
     expect(creative.filename).toEqual('creative-one');
     expect(creative.isNew).toBeFalsy();
   });
 
   it('uses the creative id for the key', () => {
-    expect(makeCreative({id: 'creative-id'}).key()).toContain('.creative-id');
+    const creative = makeModel(CreativeModel, {id: 'creative-id'}, {originalCopy: 'parent campaign copy'});
+    expect(creative.key()).toContain('.creative-id');
   });
 
   it('uses the campaign id for a new creative key', () => {

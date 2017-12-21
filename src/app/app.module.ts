@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AuthModule } from 'ngx-prx-styleguide';
 
+import { CampaignModule } from './campaign';
 import { CoreModule } from './core';
 import { SharedModule } from './shared';
 
@@ -16,6 +17,7 @@ import { routing, routingProviders, routingComponents } from './app.routing';
   imports: [
     AuthModule,
     BrowserModule,
+    CampaignModule,
     CoreModule,
     routing,
     SharedModule
