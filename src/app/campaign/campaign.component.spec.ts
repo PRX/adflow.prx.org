@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { CampaignComponent } from './campaign.component';
 
-import { MockHalService } from 'ngx-prx-styleguide';
+import { MockHalService, TabModule } from 'ngx-prx-styleguide';
 import { JingleService, CoreModule } from '../core';
 import { SharedModule } from '../shared';
 
@@ -45,6 +45,7 @@ describe('CampaignComponent', () => {
       imports: [
         CoreModule,
         RouterTestingModule,
+        TabModule,
         SharedModule
       ],
       providers: [

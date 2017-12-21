@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { TabModule } from 'ngx-prx-styleguide';
 import { SharedModule } from '../shared';
 import { campaignRouting, campaignProviders, campaignComponents } from './campaign.routing';
 
@@ -11,6 +12,7 @@ import { campaignRouting, campaignProviders, campaignComponents } from './campai
   imports: [
     CommonModule,
     SharedModule,
+    TabModule,
     campaignRouting
   ],
   providers: [

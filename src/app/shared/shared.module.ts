@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { AuthGuard, DeactivateGuard, UnauthGuard,
   FancyFormModule, HeroModule, ImageModule, ModalModule,
-  SpinnerModule, TabModule } from 'ngx-prx-styleguide';
+  SpinnerModule } from 'ngx-prx-styleguide';
 
 import { TimeAgoPipe } from './date';
 import { TimeFromNowPipe } from './date';
@@ -21,7 +21,6 @@ import { TimeFromNowPipe } from './date';
     HeroModule,
     ModalModule,
     SpinnerModule,
-    TabModule,
     TimeAgoPipe,
     TimeFromNowPipe
   ],
@@ -32,8 +31,7 @@ import { TimeFromNowPipe } from './date';
     HeroModule,
     ModalModule,
     RouterModule,
-    SpinnerModule,
-    TabModule
+    SpinnerModule
   ],
   providers: [
     AuthGuard,
