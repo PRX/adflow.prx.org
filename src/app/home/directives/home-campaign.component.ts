@@ -3,7 +3,7 @@ import { CampaignModel } from '../../shared';
 
 
 @Component({
-  selector: 'adflow-home-campaign',
+  selector: 'spot-home-campaign',
   styleUrls: ['home-campaign.component.css'],
   template: `
     <article *ngIf="campaign && campaign.sponsor">

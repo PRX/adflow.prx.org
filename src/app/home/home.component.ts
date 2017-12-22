@@ -3,7 +3,7 @@ import { JingleService } from '../core';
 import { PodcastModel } from '../shared';
 
 @Component({
-  selector: 'adflow-home',
+  selector: 'spot-home',
   styleUrls: ['home.component.css'],
   templateUrl: 'home.component.html'
 })

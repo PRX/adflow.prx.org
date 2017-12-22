@@ -42,9 +42,9 @@ describe('HomePodcastComponent', () => {
   });
 
   it('should show campaigns for podcast', () => {
-    expect(de.query(By.css('adflow-home-campaign'))).toBeNull();
+    expect(de.query(By.css('spot-home-campaign'))).toBeNull();
     comp.podcast = makeModel(PodcastModel, {name: 'Podcast One'}, null, {campaigns: [{name: 'campaign-one'}]});
     fix.detectChanges();
-    expect(de.query(By.css('adflow-home-campaign'))).not.toBeNull();
+    expect(de.query(By.css('spot-home-campaign'))).not.toBeNull();
   });
 });

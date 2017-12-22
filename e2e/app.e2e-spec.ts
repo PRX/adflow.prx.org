@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('adflow.prx.org App', () => {
+describe('spot.prx.org App', () => {
   let page: AppPage;
 
   beforeEach(() => {

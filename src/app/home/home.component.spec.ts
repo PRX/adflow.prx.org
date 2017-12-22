@@ -53,10 +53,10 @@ describe('HomeComponent', () => {
   });
 
   it('should show podcasts', () => {
-    expect(de.query(By.css('adflow-home-podcast'))).toBeNull();
+    expect(de.query(By.css('spot-home-podcast'))).toBeNull();
     const podcast1 = makeModel(PodcastModel, {name: 'podcast-one'});
     comp.podcasts = [podcast1];
     fix.detectChanges();
-    expect(de.query(By.css('adflow-home-podcast'))).not.toBeNull();
+    expect(de.query(By.css('spot-home-podcast'))).not.toBeNull();
   });
 });

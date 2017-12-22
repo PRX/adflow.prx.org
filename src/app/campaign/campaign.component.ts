@@ -10,7 +10,7 @@ import { CampaignModel } from '../shared';
 
 @Component({
   providers: [TabService],
-  selector: 'adflow-campaign',
+  selector: 'spot-campaign',
   styleUrls: ['campaign.component.css'],
   templateUrl: 'campaign.component.html'
 })
