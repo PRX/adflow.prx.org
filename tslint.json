@@ -118,13 +118,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "adflow",
+      "spot",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "adflow",
+      "spot",
       "kebab-case"
     ],
     "use-input-property-decorator": true,

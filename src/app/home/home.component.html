@@ -6,7 +6,7 @@
     <hr>
     <prx-spinner *ngIf="!isLoaded"></prx-spinner>
     <div *ngIf="podcasts && podcasts.length">
-      <adflow-home-podcast *ngFor="let p of podcasts" [podcast]="p"></adflow-home-podcast>
+      <spot-home-podcast *ngFor="let p of podcasts" [podcast]="p"></spot-home-podcast>
     </div>
   </section>
 </div>

@@ -4,7 +4,7 @@ import { CmsService, HalDoc } from './core';
 import { Env } from './core/core.env';
 
 @Component({
-  selector: 'adflow-root',
+  selector: 'spot-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

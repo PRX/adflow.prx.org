@@ -1,4 +1,4 @@
-# Adflow.Prx.Org
+# Spot.Prx.Org
 
 ### Use defaults
 To set-up environment custom values, start with these defaults in your `.env` file:
@@ -6,7 +6,7 @@ To set-up environment custom values, start with these defaults in your `.env` fi
 cp env-example .env
 vim .env
 ```
-Adflow will connect to id.staging.prx.org and jingle.staging.prx.tech.
+Spot will connect to id.staging.prx.org and jingle.staging.prx.tech.
 
 ### AUTH_CLIENT_ID for environment
 Next, you will need to create a client application set up, this is easiest to do from the ID console:
@@ -19,14 +19,14 @@ docker exec -it <container_id> /bin/ash
 
 # in the console, save a new client application
 client = Client.create(
-  :url => "http://adflow.prx.dev",
-  :callback_url => "http://adflow.prx.dev/assets/callback.html",
-  :support_url => "http://adflow.prx.dev",
+  :url => "http://spot.prx.dev",
+  :callback_url => "http://spot.prx.dev/assets/callback.html",
+  :support_url => "http://spot.prx.dev",
   :image_url => "http://s3.amazonaws.com/production.mediajoint.prx.org/public/comatose_files/4625/prx-logo_large.png",
-  :description => "adflow.prx.dev",
+  :description => "spot.prx.dev",
   :template_name => "prx_beta",
   :user_id =>8,
-  :name => "adflow.prx.dev",
+  :name => "spot.prx.dev",
   :auto_grant =>true
 )
 client.key = SecureRandom.hex(40)[0..39]
@@ -48,11 +48,11 @@ Enter in the client id in `.env`, setting `AUTH_CLIENT_ID` to the value from abo
 yarn install
 
 # setup pow proxy (see http://pow.cx/)
-echo 4205 > ~/.pow/adflow.prx
+echo 4205 > ~/.pow/spot.prx
 
 # dev server
 npm start
-open http://adflow.prx.dev
+open http://spot.prx.dev
 
 # run tests in Chrome
 npm test

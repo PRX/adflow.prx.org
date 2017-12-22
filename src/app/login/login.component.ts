@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'adflow-login',
+  selector: 'spot-login',
   styleUrls: ['login.component.css'],
   template: `
     <div class="login">

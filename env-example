@@ -12,8 +12,8 @@ CMS_TTL=
 
 # prx auth
 AUTH_HOST=id.staging.prx.tech
-# for adflow.prx.dev
-AUTH_CLIENT_ID=5f107241f1eec62dfc5d77030df34616569890bc
+# for spot.prx.dev
+AUTH_CLIENT_ID=c47154d3de255e7cf32d34ccf7783342048f1edd
 
 # monitoring
 NEW_RELIC_APP_NAME=
